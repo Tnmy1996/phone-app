@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Dialer, CallingScreen, Contacts } from './components';
 import './index.css';
+import IncomingCallScreen from './components/IncomingCallScreen';
 
 const root = document.getElementById('root');
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     {
         path: '/contacts',
         element: <Contacts />,
+    },
+    {
+        path: '/incoming/:phoneNumber',
+        element: <IncomingCallScreen />,
     },
 ]);
 

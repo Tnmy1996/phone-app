@@ -78,6 +78,17 @@ export const Dialer: React.FC = () => {
                             Contacts
                         </button>
                     </Link>
+                    <Link
+                        to={`/incoming/${Math.floor(Math.random() * 9000000000) + 1000000000}`}
+                        className='w-1/2 mr-2'
+                    >
+                        <button
+                            type='button'
+                            className='w-full mt-2 p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600'
+                        >
+                            Simulate Incoming Call
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
