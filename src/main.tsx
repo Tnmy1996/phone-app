@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Dialer, CallingScreen, Contacts } from './components';
 import './index.css';
 import IncomingCallScreen from './components/IncomingCallScreen';
+import { Layout } from './components/Layout';
 
 const root = document.getElementById('root');
 
@@ -14,19 +15,25 @@ if (!root) {
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Dialer />,
-    },
-    {
-        path: '/calling/:phoneNumber',
-        element: <CallingScreen />,
-    },
-    {
-        path: '/contacts',
-        element: <Contacts />,
-    },
-    {
-        path: '/incoming/:phoneNumber',
-        element: <IncomingCallScreen />,
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <Dialer />,
+            },
+            {
+                path: 'calling/:phoneNumber',
+                element: <CallingScreen />,
+            },
+            {
+                path: 'contacts',
+                element: <Contacts />,
+            },
+            {
+                path: 'incoming/:phoneNumber',
+                element: <IncomingCallScreen />,
+            },
+        ],
     },
 ]);
 
